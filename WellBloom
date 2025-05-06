@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Nutritional Intake Chart</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body { font-family: Arial; }
+    canvas { max-width: 600px; margin: auto; }
+  </style>
+</head>
+<body>
+
+  <h2 style="text-align:center;">Daily Nutritional Intake vs Goal</h2>
+  <canvas id="nutritionChart"></canvas>
+
+  <script>
+    const ctx = document.getElementById('nutritionChart').getContext('2d');
+    const nutritionChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Calories', 'Protein (g)', 'Carbs (g)', 'Fat (g)'],
+        datasets: [
+          {
+            label: 'Intake',
+            data: [2200, 90, 250, 70],
+            backgroundColor: 'rgba(54, 162, 235, 0.6)'
+          },
+          {
+            label: 'Goal',
+            data: [2000, 100, 300, 70],
+            backgroundColor: 'rgba(255, 159, 64, 0.6)'
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
